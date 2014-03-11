@@ -11,27 +11,32 @@
 
 	<h2>Exercise 1: Create and build a plugin with an Eclipse 4 sample application</h2>
 
-	In this exercise, we will use the Eclipse 4 tools to create a plugin with a simple Eclipse 4 Rich Client Platform application.
-	<br />We will compile and run the plugin from the IDE and then show how to build it with Tycho by converting it to Maven project.
+	In this exercise, we will create a plugin with a simple Eclipse 4 Rich Client Platform application.
+	(Actually, the Eclipse 4 Tools will generate most the content for us.)
+	<br />Then, we will set up a Tycho build for the plugin.
+
+	<h3>Generating an Eclipse 4 sample application</h3>
+
 	<ol>
 		<li>Create a new Eclipse 4 sample application in a plug-in called <tt>tychodemo.bundle</tt> <ul>
-			<li><tt>File > New > Project > Eclipse 4 > Eclipse 4 Application Project</tt></li>
-			<li>Enter "tychodemo.bundle" as project name</li>
-			<li>In "Content", enter Name: "Tycho Demo Bundle"</li>
-			<li>In "Eclipse 4 Application", keep all default values and press Finish</li>
-			<li><table>
-				<tr>
-					<td valign="top"><img src="resources/new_e4_app.png" /></td>
-					<td valign="top"><img src="resources/new_e4_app_1.png" /></td>
-				</tr>
-				<tr>
-					<td valign="top"><img src="resources/new_e4_app_2.png" /></td>
-					<td valign="top"><img src="resources/new_e4_app_3.png" /></td>
-				</tr>
-			</table></li></ul>
+			<li><tt>File > New > Project > Eclipse 4 > Eclipse 4 Application Project</tt>
+				<br /><img src="resources/new_e4_app.png" />
+			</li>
+			<li>Enter <tt>tychodemo.bundle</tt> as project name
+				<br /><img src="resources/new_e4_app_1.png" />
+			</li>
+			<li>On the <tt>Content</tt> page, enter the name <tt>Tycho Demo Bundle</tt>. Click <tt>Next &gt;</tt>
+				<br /><img src="resources/new_e4_app_2.png" />
+			</li>
+			<li>On the <tt>Eclipse 4 Application</tt> page, select <tt>Create sample content</tt> and press <tt>Finish</tt>
+				<br /><img src="resources/new_e4_app_3.png" />
+			</li>
+			<li>If a <tt>NullPointerException</tt> is shown, close the error dialog and close the editor tab which only consists of an icon</li>
+		</ul></li>
+		<li>
 		</li>
-		<li>Run the application to check if it works: <ul>
-			<li>Open the Product definition file <tt>tychodemo.bundle.product</tt></li>
+		<li>Run the generated application to see what it does: <ul>
+			<li>Open the product definition file <tt>tychodemo.bundle.product</tt></li>
 			<li>In the tab "Overview", press "Launch an Eclipse application"
 				<br /><img src="resources/product_1.png" />
 			</li>
