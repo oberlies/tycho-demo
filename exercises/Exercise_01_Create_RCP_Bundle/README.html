@@ -31,19 +31,16 @@
 			<li>On the <tt>Eclipse 4 Application</tt> page, select <tt>Create sample content</tt> and press <tt>Finish</tt>
 				<br /><img src="resources/new_e4_app_3.png" />
 			</li>
-			<li>If a <tt>NullPointerException</tt> is shown, close the error dialog and close the editor tab which only consists of an icon</li>
 		</ul></li>
-		<li>
-		</li>
 		<li>Run the generated application to see what it does: <ul>
 			<li>Open the product definition file <tt>tychodemo.bundle.product</tt></li>
-			<li>In the tab "Overview", press "Launch an Eclipse application"
+			<li>On the <tt>Overview</tt> tab, click on <tt>Launch an Eclipse application</tt>
 				<br /><img src="resources/product_1.png" />
 			</li>
-			<li>You should see a small RCP window with title "tychodemo.bundle".
+			<li>You should see an RCP application window with title <tt>tychodemo.bundle</tt>
 				<br /><img src="resources/screenshot_1.png" />
 			</li>
-			<li>Open the <tt>Help > About</tt> menu. A dialog box should appear:
+			<li>Open the <tt>Help > About</tt> menu. A dialog box with the text <tt>Eclipse 4 Application example</tt> is shown:
 				<br /><img src="resources/about_1.png" />
 			</li>
 			<li>Open <tt>tychodemo.bundle.handlers.AboutHandler</tt> and change the about text from <tt>"Eclipse 4 Application example."</tt> to <tt>"Tycho Demo RCP"</tt>
@@ -52,19 +49,24 @@
 				<br /><img src="resources/about_3.png" />
 			</li>
 		</ul></li>
-		<li>To be independent of network access to <tt><a href="http://repo1.maven.org">Maven Central (http://repo1.maven.org)</a> </tt>, we will use the pre-filled local maven repository from the USB stick:
-			<br />Copy the folder <tt>.m2/</tt> to your user home directory <tt>~</tt> (Linux/Mac) or <tt>%USERPROFILE%</tt> (Windows).
-			<br />NOTE: If you have already used maven before, you may want to save a backup of your <tt>~/.m2/settings.xml</tt> file.
+	</ol>
+
+	<h3>Setting up the Tycho build</h3>
+
+	<ol start="3">
+		<li>Pre-fill your local Maven repository (to be independent of network access to <a href="http://repo1.maven.apache.org/maven2/">Maven central</a>):
+			<br />Copy the <tt>.m2</tt> folder from the USB stick to your user home directory <tt>~</tt> (Linux/Mac) or <tt>%USERPROFILE%</tt> (Windows).
+			<br />Note: If you have already used Maven before, you may want to save a backup of your <tt>~/.m2/settings.xml</tt> file.
 		</li>
 
-		<li><a name="convert_to_maven" />Right-click the <tt>tychodemo.bundle</tt> project and select <tt>Configure > Convert to Maven Project</tt>
+		<li><a name="convert_to_maven" />Right-click on the <tt>tychodemo.bundle</tt> project and select <tt>Configure > Convert to Maven Project</tt>
 			<br /><img src="resources/convert_to_maven_1.png" />
 		</li>
-		<li>Enter <tt>Group Id: tychodemo</tt>, <tt>Version: 1.0.0-SNAPSHOT</tt>, <tt>Packaging: eclipse-plugin</tt>.
+		<li>Enter the groupId <tt>tychodemo</tt>, the version <tt>1.0.0-SNAPSHOT</tt>, and the packaging <tt>eclipse-plugin</tt>
 			<br /><img src="resources/convert_to_maven_2.png" />
-			<br />Note that <tt>MANIFEST/Bundle-SymbolicName == POM/artifactId</tt> and <tt>MANIFEST/&lt;Bundle-Version&gt;.qualifier == POM/&lt;version&gt;-SNAPSHOT</tt>
+			<br />Note: Tycho requires that the <tt>artifactId</tt> in the POM is the same as the <tt>Bundle-SymbolicName</tt> in the OSGi manifest, and that the versions match (with <tt>.qualifier</tt> replaced by <tt>-SNAPSHOT</tt>) 
 		</li>
-		<li>You will get a build error on the newly created file <tt>pom.xml</tt>: <tt>"Project build error: Unknown packaging: eclipse-plugin"</tt>.
+		<li>You will get a build error on the newly created <tt>pom.xml</tt> file: <tt>"Project build error: Unknown packaging: eclipse-plugin"</tt>.
 			<br />This is expected, because the Tycho build extension is not yet configured (see next steps).
 			<br /><img src="resources/build_error.png" />
 		</li>
