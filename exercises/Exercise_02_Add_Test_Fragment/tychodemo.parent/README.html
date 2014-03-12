@@ -113,10 +113,11 @@
 			Expected results: <ul>
 				<li>The <tt>tychodemo.bundle.tests</tt> project is now listed as module in the parent POM.
 					(This means that it will be included in the build reactor when triggering a build on the parent POM.)
-					<br/ ><img src="../resources/add_module_3.png" />
+					<br /><img src="../resources/add_module_3.png" />
 				</li>
 				<li>The <tt>tychodemo.bundle.tests</tt> project has the <tt>tychodemo.parent</tt> configured as parent.
 					In this way, it inherits the Tycho configuration from the parent POM and the error <tt>Unknown packaging: eclipse-test-plugin</tt> is gone.
+					<br /><img src="../resources/add_module_4.png" />
 				</li>
 			</ul>
 		</li>
@@ -129,7 +130,9 @@
 			<li>Assert that <tt>getGreeting()</tt> contains <tt>"Tycho Demo"</tt>
 				<br /><img src="../resources/test_impl.png" />
 			</li>
-			<li>Execute the test in Eclipse, e.g. by selecting the <tt>AboutHandlerTest</tt> launch configuration from the launch history. The test should now pass.
+			<li>Execute the test in Eclipse, e.g. by selecting the <tt>AboutHandlerTest</tt> launch configuration from the launch history
+				<br /><img src="../resources/launch_history.png" />
+				<br />The test should now pass
 				<br /><img src="../resources/test_success_eclipse.png" />
 			</li>
 			<li>Run the build again, e.g. by selecting the <tt>tychodemo.parent</tt> launch configuration from the launch history. The build should now succeed.
