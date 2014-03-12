@@ -11,9 +11,9 @@
 
 	<h2>Exercise 1: Create and build a plugin with an Eclipse 4 sample application</h2>
 
-	In this exercise, we will create a plugin with a simple Eclipse 4 Rich Client Platform application.
+	In this exercise, we'll create a plugin with a simple Eclipse 4 Rich Client Platform application.
 	(Actually, the Eclipse 4 Tools will generate most the content for us.)
-	<br />Then, we will set up a Tycho build for the plugin.
+	<br />Then, we'll set up a Tycho build for the plugin.
 
 	<h3>Generating an Eclipse 4 sample application</h3>
 
@@ -43,6 +43,8 @@
 			<li>Open the <tt>Help > About</tt> menu. A dialog box with the text <tt>Eclipse 4 Application example</tt> is shown:
 				<br /><img src="resources/about_1.png" />
 			</li>
+		</ul></li>
+		<li>Change the text of the about dialog: <ul>
 			<li>Open <tt>tychodemo.bundle.handlers.AboutHandler</tt> and change the about text from <tt>"Eclipse 4 Application example."</tt> to <tt>"Tycho Demo RCP"</tt>
 				<br /><img src="resources/about_2.png" /></li>
 			<li>Open <tt>tychodemo.bundle.product</tt> and launch the Eclipse application again. Open the <tt>Help > About</tt> dialog. You should see your message now:
@@ -53,9 +55,9 @@
 
 	<h3>Setting up the Tycho build</h3>
 
-	<ol start="3">
+	<ol start="4">
 		<li>Pre-fill your local Maven repository (to be independent of network access to <a href="http://repo1.maven.apache.org/maven2/">Maven central</a>):
-			<br />Copy the <tt>.m2</tt> folder from the USB stick to your user home directory <tt>~</tt> (Linux/Mac) or <tt>%USERPROFILE%</tt> (Windows).
+			<br />Copy the <a href=""><tt>.m2</tt> folder from the USB stick</a> to your user home directory <tt>~</tt> (Linux/Mac) or <tt>%USERPROFILE%</tt> (Windows).
 			<br />Note: If you have already used Maven before, you may want to save a backup of your <tt>~/.m2/settings.xml</tt> file.
 		</li>
 

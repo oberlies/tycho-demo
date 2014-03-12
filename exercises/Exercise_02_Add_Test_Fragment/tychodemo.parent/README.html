@@ -12,14 +12,14 @@
 
 	<h2>Exercise 2: Add a test fragment with a simple JUnit test</h2>
 
-	In this exercise, we will add a simple JUnit test in a fragment to the tychodemo.bundle.
-	<br />We will run the test from Eclipse as a JUnit plugin test and then show how the test can
-	be built and run by Tycho by converting the test project to a Maven project.
-	<br />A failed test will also fail the headless build.
-	<br />
-	<br />As a starting point for this exercise, we use a refactored version of the result of the first exercise:
-	<br />Common settings have been extracted to a parent POM <a href="pom.xml"><tt>tychodemo.parent</tt></a> from which all modules will inherit and which defines the reactor modules.
-	<br />
+	In this exercise, we'll add a simple JUnit test in a test fragment for the bundle.
+	<br />We'll run the test from within Eclipse and then execute the same test as part of the Tycho build.
+
+	<h3>Importing the refactored project</h3>
+
+	As a starting point for this exercise, we use a refactored version of the results of the first exercise:
+	<br />In order to share configuration between the projects, the common configuration has been extracted to a new project <a href="pom.xml"><tt>tychodemo.parent</tt></a>.
+	 All projects will configure the <tt>tychodemo.parent</tt> as parent, and hence inherit the common configuration.
 
 	<ol>
 		<li>Select <tt>File > Switch Workspace > Other...</tt> and choose the folder <a href="../">Exercise_02_Add_Test_Fragment</a>.</li>
@@ -31,6 +31,11 @@
 			<br />The build should succeed and build two modules:
 			<br /><img src="../resources/build_success.png" />
 		</li>
+	</ol>
+
+	<h3>Adding tests</h3>
+
+	<ol start="4">
 		<li>Create a new fragment project <tt>tychodemo.bundle.tests</tt> with fragment host <tt>tychodemo.bundle</tt>:
 			<br /><tt>File > New > Project > Plug-in Development > Fragment Project</tt>
 			<br />
