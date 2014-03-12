@@ -71,13 +71,13 @@
 			<br /><img src="resources/build_error.png" />
 		</li>
 
-		<li>Open <tt>pom.xml</tt>, go to Tab "pom.xml".</li>
-		<li>To define the Tycho version to be used, add this snippet into <tt>&lt;project&gt;</tt> : <pre>
+		<li>Open the <tt>pom.xml</tt> and switch to the tab <tt>pom.xml</tt></li>
+		<li>Define a property with the Tycho version by adding this snippet to the <tt>&lt;project&gt;</tt> : <pre>
   &lt;properties&gt;
-    &lt;tycho-version&gt;0.17.0&lt;/tycho-version&gt;
+    &lt;tycho-version&gt;0.20.0&lt;/tycho-version&gt;
   &lt;/properties&gt;</pre>
 		</li>
-		<li>To enable tycho, add this snippet into <tt>&lt;project&gt;</tt> : <pre>
+		<li>To enable Tycho, add this snippet to the <tt>&lt;project&gt;</tt> : <pre>
   &lt;build&gt;
     &lt;plugins&gt;
       &lt;plugin&gt;
@@ -91,43 +91,46 @@
   &lt;/build&gt;</pre>
 		</li>
 
-		<li>If there are still error markers from m2eclipse: <ul>
-			<li><tt>"Project build error: Unknown packaging: eclipse-plugin"</tt>: you have to restart your IDE (this is probably an m2eclipse bug)</li>
-			<li><tt>"Project configuration is not up to date"</tt>: Right-click the project <tt>Maven > Update Project...</tt>, select all projects and click OK</li>
-		</ul></li>
+		<li>In case you now get the error "Project configuration is not up to date", right-click on the project <tt>Maven > Update Project...</tt>, and confirm the dialog</li>
 
-		<li>Right-click the tychodemo.bundle project and select <tt>Run As > Maven build</tt>
+		<li>Right-click on the <tt>tychodemo.bundle</tt> project and select <tt>Run As > Maven build</tt>
 			<br /><img src="resources/run_maven_1.png" />
 		</li>
-		<li>Enter <tt>Goals: clean install</tt>
+		<li>Enter the goals <tt>clean install</tt>
 			<br /><img src="resources/run_maven_2.png" />
 		</li>
 
-		<li>Expected result: the build fails:<br /> <img src="resources/build_error_p2.png" />
+		<li>Expected result: the build fails with a "Cannot resolve project dependencies" error
+			<br /> <img src="resources/build_error_p2.png" />
 
 		</li>
-		<li>Specify the p2 repository for resolving dependencies: <ul>
+		<li>Add a p2 repository to the target platform in the Tycho build, so that the dependencies can be resolved: <ul>
 			<li>Add this snippet in <tt>&lt;project&gt;</tt> <pre>
   &lt;repositories&gt;
     &lt;!-- configure p2 repository to resolve against --&gt;
     &lt;repository&gt;
-      &lt;id&gt;eclipse-platform-m6&lt;/id&gt;
+      &lt;id&gt;eclipse-project-luna&lt;/id&gt;
       &lt;layout&gt;p2&lt;/layout&gt;
-      &lt;url&gt;http://download.eclipse.org/eclipse/updates/4.3&lt;/url&gt;
+      &lt;url&gt;http://download.eclipse.org/eclipse/updates/4.4milestones&lt;/url&gt;
     &lt;/repository&gt;
   &lt;/repositories&gt;</pre>
 			</li>
 			<li>In order to be independent of network access to eclipse.org:<ul>
 				<li>Open <tt>~/.m2/settings.xml</tt> (Linux/Mac) or <tt>%USERPROFILE%/.m2/settings.xml</tt> (Windows)</li>
 				<li>Replace the mirror URL <tt>file:/TODO/path/to/tutorial/p2_repository</tt> with a real <tt>file:</tt> URL pointing to your 
-					<a href="../../p2_repository">local copy</a> of the p2 repository from the USB stick.
+					<a href="../../p2_repository">local copy of the p2 repository from the USB stick</a>
 				</li></ul>
-				<br />This p2 repository contains a subset of the <a href="http://download.eclipse.org/releases/kepler/">Kepler p2 repository</a>.
+				<br />This p2 repository contains a subset of the Eclipse Project Luna M6 repository.
 			</li></ul>
 		</li>
 
-		<li>Expected result is a <tt>SUCCESSFUL</tt> build with the bundle jar <tt>tychodemo.bundle-1.0.0-SNAPSHOT.jar</tt> in the <tt>target/</tt> folder of the project <br /> (you may have to refresh
-			the project to display the <tt>target/</tt> folder)<br /> <img src="resources/build_success.png" />
+		<li>Run the build of <tt>tychodemo.parent</tt> again, e.g. by right-clicking on <tt>tychodemo.parent > Run As > Maven build</tt>
+			<br />Expected results:<ul>
+				<li><tt>BUILD SUCCESS</tt></li>
+				<li>The bundle jar <tt>tychodemo.bundle-1.0.0-SNAPSHOT.jar</tt> in the <tt>target/</tt> folder of the project. (Refresh the project if the content is not shown.)
+					<br /><img src="resources/build_success.png" />
+				</li>
+			</ul>
 		</li>
 	</ol>
 
