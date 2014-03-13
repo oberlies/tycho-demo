@@ -13,7 +13,6 @@
 	<h2>Exercise 3: Add a feature</h2>
 
 	In this exercise, we'll create a feature which groups the plugin(s) we build to units which should be installed together.
-	A feature is needed in order to include content into a p2 repository.
 	<br />
 
 	<h3>Recovery option</h3>
@@ -36,23 +35,39 @@
 	<h3>Adding a feature</h3>
 
 	<ol>
-		<li>Create a new feature project <tt>tychodemo.feature</tt> and add <tt>tychodemo.bundle</tt> as included plugin:
-			<br /><tt>File > New > Other > Plug-in Development > Feature Project</tt>
-			<br /><img src="../resources/new_feature.png" />
-			<br /><img src="../resources/feature_name.png" />
-			<br /><img src="../resources/feature_include_bundle.png" />
-			<br />Note: Make sure the new project root folder is located next to the existing module folders
-			(Uncheck "Use default location" in the project creation wizard and enter location if necessary)
-		</li>
-		<li>Same as in exercise 1, <a href="../../Exercise_01_Create_RCP_Bundle/README.html#convert_to_maven">convert the project <tt>tychodemo.feature</tt> to a Maven project</a>.
-			<br />Enter groupId: <tt>tychodemo</tt>, Version: <tt>1.0.0-SNAPSHOT</tt>, Packaging: <tt>eclipse-feature</tt>:<br /> <img src="../resources/convert_to_maven.png" />
-			<br />Note packaging type <tt>eclipse-feature</tt>.
-			Also note <tt>POM version == feature version</tt> and <tt>POM artifactId == feature id</tt>.
-		</li>
-		<li>Same as in exercise 2, <a href="../../Exercise_02_Add_Test_Fragment/tychodemo.parent/README.html#add_module">add the new module <tt>tychodemo.feature</tt> to the parent pom <tt>tychodemo.parent</tt></a>.</li>
-		<li><tt>tychodemo.parent > Run As > Maven build</tt>
-			<br />Expected result: SUCCESSFUL build with 4 modules, including <tt>tychodemo.feature</tt>
-			<br /><img src="../resources/build_success.png" />
+		<li>Create a new feature project <tt>tychodemo.feature</tt> and which includes the <tt>tychodemo.bundle</tt> plugin: <ul>
+			<li><tt>File > New > Other > Plug-in Development > Feature Project</tt>
+				<br /><img src="../resources/new_feature.png" />
+			</li>
+			<li>Enter the project name <tt>tychodemo.feature</tt>
+				<br /><img src="../resources/feature_name.png" />
+			</li>
+			<li>Press <tt>Next &gt;</tt> and select the <tt>tychodemo.bundle</tt> to include it in the feature
+				<br /><img src="../resources/feature_include_bundle.png" />
+			</li>
+		</ul></li>
+		<li>Convert the test project to a Maven project: <ul>
+			<li>Right-click <tt>tychodemo.feature > Configure > Convert to Maven Project</tt></li>
+			<li>Enter the groupId <tt>tychodemo</tt>, the version <tt>1.0.0-SNAPSHOT</tt> and the packaging <tt>eclipse-feature</tt>
+				<br /><img src="../resources/convert_to_maven.png" />
+				<br />Note: Tycho requires that the <tt>artifactId</tt> in the POM is the same as the feature ID, and that the versions match (with <tt>.qualifier</tt> replaced by <tt>-SNAPSHOT</tt>)
+			</li>
+		</ul></li>
+		<li>Add the feature project as a module to the reactor, and configure the feature project's parent POM: <ul>
+			<li>Open the <tt>pom.xml</tt> of <tt>tychodemo.parent</tt> and click on <tt>Add...</tt> in the <tt>Modules</tt> section
+				<br /><img src="../resources/add_module_1.png" />
+			</li>
+			<li>Select <tt>tychodemo.feature</tt> and <tt>Update POM parent section in selected projects</tt>
+				<br /><img src="../resources/add_module_2.png" />
+			</li>
+		</ul></li>
+		<li>Trigger a build on the parent POM, e.g. by right-clicking on <tt>tychodemo.parent > Run As > Maven build</tt>
+			<br />Expected result: <ul>
+				<li>BUILD SUCCESS</li>
+				<li>The reactor builds four modules, including the <tt>tychodemo.feature</tt> project
+					<br /><img src="../resources/build_success.png" />
+				</li>
+			</ul>
 		</li>
 	</ol>
 
