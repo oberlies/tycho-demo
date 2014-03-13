@@ -66,7 +66,7 @@
 		</li>
 		<li>Enter the groupId <tt>tychodemo</tt>, the version <tt>1.0.0-SNAPSHOT</tt>, and the packaging <tt>eclipse-plugin</tt>
 			<br /><img src="resources/convert_to_maven_2.png" />
-			<br />Note: Tycho requires that the <tt>artifactId</tt> in the POM is the same as the <tt>Bundle-SymbolicName</tt> in the OSGi manifest, and that the versions match (with <tt>.qualifier</tt> replaced by <tt>-SNAPSHOT</tt>) 
+			<br />Note: Tycho requires that the <tt>artifactId</tt> in the POM is the same as the <tt>Bundle-SymbolicName</tt> in the OSGi manifest, and that the versions match (with <tt>.qualifier</tt> replaced by <tt>-SNAPSHOT</tt>)
 		</li>
 		<li>You will get a build error on the newly created <tt>pom.xml</tt> file: <tt>"Project build error: Unknown packaging: eclipse-plugin"</tt>.
 			<br />This is expected, because the Tycho build extension is not yet configured (see next steps).
@@ -93,7 +93,9 @@
   &lt;/build&gt;</pre>
 		</li>
 
-		<li>In case you now get the error "Project configuration is not up to date", right-click on the project <tt>Maven > Update Project...</tt>, and confirm the dialog</li>
+		<li>In case you now get the error "Project configuration is not up to date",
+			right-click on <tt>tychodemo.bundle > Maven > Update Project...</tt>, select the project and click <tt>OK</tt>
+		</li>
 
 		<li>Right-click on the <tt>tychodemo.bundle</tt> project and select <tt>Run As > Maven build</tt>
 			<br /><img src="resources/run_maven_1.png" />
@@ -119,7 +121,7 @@
 			</li>
 			<li>In order to be independent of network access to eclipse.org:<ul>
 				<li>Open <tt>~/.m2/settings.xml</tt> (Linux/Mac) or <tt>%USERPROFILE%/.m2/settings.xml</tt> (Windows)</li>
-				<li>Replace the mirror URL <tt>file:/TODO/path/to/tutorial/p2_repository</tt> with a real <tt>file:</tt> URL pointing to your 
+				<li>Replace the mirror URL <tt>file:/TODO/path/to/tutorial/p2_repository</tt> with a real <tt>file:</tt> URL pointing to your
 					<a href="../../p2_repository">local copy of the p2 repository from the USB stick</a>
 				</li></ul>
 				<br />This p2 repository contains a subset of the Eclipse Project Luna M6 repository.

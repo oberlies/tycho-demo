@@ -26,8 +26,8 @@
 			<li>If a launch configuration dialog appears, enter the goals <tt>clean install</tt> and hit <tt>Run</tt></li>
 		</ul></li>
 		<li>The build should succeed and build three modules <pre>
-   tychodemo.parent 
-   tychodemo.bundle 
+   tychodemo.parent
+   tychodemo.bundle
    tychodemo.bundle.tests</pre>
 		</li>
 	</ul>
@@ -35,18 +35,19 @@
 	<h3>Adding a feature</h3>
 
 	<ol>
-		<li>Create a new feature project <tt>tychodemo.feature</tt> and which includes the <tt>tychodemo.bundle</tt> plugin: <ul>
+		<li>Create a new feature project <tt>tychodemo.feature</tt> which includes the <tt>tychodemo.bundle</tt> plugin: <ul>
 			<li><tt>File > New > Other > Plug-in Development > Feature Project</tt>
 				<br /><img src="../resources/new_feature.png" />
 			</li>
 			<li>Enter the project name <tt>tychodemo.feature</tt>
 				<br /><img src="../resources/feature_name.png" />
 			</li>
-			<li>Press <tt>Next &gt;</tt> and select the <tt>tychodemo.bundle</tt> to include it in the feature
+			<li>Press <tt>Next &gt;</tt> and select the <tt>tychodemo.bundle</tt>
 				<br /><img src="../resources/feature_include_bundle.png" />
+				<br />Note: A feature only logically includes plugins; the feature artifact won't actually contain the JARs of its "included" plugins.
 			</li>
 		</ul></li>
-		<li>Convert the test project to a Maven project: <ul>
+		<li>Convert the feature project to a Maven project: <ul>
 			<li>Right-click <tt>tychodemo.feature > Configure > Convert to Maven Project</tt></li>
 			<li>Enter the groupId <tt>tychodemo</tt>, the version <tt>1.0.0-SNAPSHOT</tt> and the packaging <tt>eclipse-feature</tt>
 				<br /><img src="../resources/convert_to_maven.png" />
@@ -61,6 +62,9 @@
 				<br /><img src="../resources/add_module_2.png" />
 			</li>
 		</ul></li>
+		<li>In case you get the error "Project configuration is not up to date",
+			right-click on <tt>tychodemo.feature > Maven > Update Project...</tt>, select the project and click <tt>OK</tt>
+		</li>
 		<li>Trigger a build on the parent POM, e.g. by right-clicking on <tt>tychodemo.parent > Run As > Maven build</tt>
 			<br />Expected result: <ul>
 				<li>BUILD SUCCESS</li>
